@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 public class WordAdapter extends ArrayAdapter<Word> {
+     public WordAdapter(Activity context, ArrayList<Word> words) {
+        super(context, 0, words);
+    }
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
