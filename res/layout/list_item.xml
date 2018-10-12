@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:minHeight="@dimen/list_item_height"
+    android:background="@color/tan_background">
         
         <ImageView
             android:id="@+id/image"
@@ -15,7 +17,8 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="16dp">
+        android:paddingLeft="16dp"
+        android:background="@color/category_numbers">
             
 
         <TextView
@@ -36,7 +39,6 @@
             android:gravity="bottom"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="@android:color/white"
-            android:textStyle="bold"
             android:id="@+id/default_text_view"
             tools:text="one"/>
             
