@@ -7,8 +7,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 public class WordAdapter extends ArrayAdapter<Word> {
-     public WordAdapter(Activity context, ArrayList<Word> words) {
+     private int mColorResourceID;
+     
+     public WordAdapter(Activity context, ArrayList<Word> words, int colorResourceID) {
         super(context, 0, words);
+        mColorResourceID = colorResourceID;
     }
     @NonNull
     @Override
@@ -32,6 +35,10 @@ public class WordAdapter extends ArrayAdapter<Word> {
         } else {
             iconView.setVisibility(View.GONE);
         }
+         
+         View textContainer = listItemView.findViewById(R.id.text_container);
+         int color = ContextCompat.getColor(getContext(), mColorResourceID);
+         textContainer.setBackgroundColor(color);
 
 
         return listItemView;
