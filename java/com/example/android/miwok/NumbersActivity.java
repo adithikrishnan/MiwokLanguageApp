@@ -9,7 +9,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
-    
+    private MediaPlayer mMediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,8 +35,8 @@ public class NumbersActivity extends AppCompatActivity {
             @Override
             public void onItemCLick(AdapterView<?> parent, View view, int position, long id) {
                 Word word = words.get(position)
-                MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getAudioResourceID());
-                mediaPlayer.start();
+                mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getAudioResourceID());
+                mMediaPlayer.start();
             }
         });
 
