@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class FamilyMembersActivity extends AppCompatActivity {
-
+    private MediaPlayer mMediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,8 +35,8 @@ public class FamilyMembersActivity extends AppCompatActivity {
             @Override
             public void onItemCLick(AdapterView<?> parent, View view, int position, long id) {
                 Word word = words.get(position)
-                MediaPlayer mediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, word.getAudioResourceID());
-                mediaPlayer.start();
+                mMediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, word.getAudioResourceID());
+                mMediaPlayer.start();
             }
         });
 
