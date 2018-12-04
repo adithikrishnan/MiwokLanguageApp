@@ -31,6 +31,14 @@ public class FamilyMembersActivity extends AppCompatActivity {
         WordAdapter adapter = new WordAdapter(this, words, R.color.category_family);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemCLick(AdapterView<?> parent, View view, int position, long id) {
+                Word word = words.get(position)
+                MediaPlayer mediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, word.getAudioResourceID());
+                mediaPlayer.start();
+            }
+        });
 
     }
 }
