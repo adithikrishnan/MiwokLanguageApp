@@ -31,7 +31,7 @@ public class PhrasesActivity extends AppCompatActivity {
             @Override
             public void onItemCLick(AdapterView<?> parent, View view, int position, long id) {
                 Word word = words.get(position)
-                MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getAudioResourceID());
+                MediaPlayer mediaPlayer = MediaPlayer.create(PhrasesActivity.this, word.getAudioResourceID());
                 mediaPlayer.start();
             }
         });
