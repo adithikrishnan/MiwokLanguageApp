@@ -5,6 +5,12 @@ import android.os.Bundle;
 
 public class PhrasesActivity extends AppCompatActivity {
     private MediaPlayer mMediaPlayer;
+    private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp){
+                releaseMediaPlayer();
+            }	
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,11 +36,21 @@ public class PhrasesActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemCLick(AdapterView<?> parent, View view, int position, long id) {
-                Word word = words.get(position)
+                Word word = words.get(position);
+                releaseMediaPlayer();
                 mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, word.getAudioResourceID());
                 mMediaPlayer.start();
             }
         });
+        
+        mMediaPlayer.setOnCompletionListener(mCompletionListener);
 
     }
+    
+    private void releaseMediaPlayer() {
+    if (mMediaPlayer != null) {
+        mMediaPlayer.release();
+        mMediaPlayer = null;
+    }
+}
 }
