@@ -9,8 +9,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
-
-    private MediaPlayer mMediaPlayer;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
