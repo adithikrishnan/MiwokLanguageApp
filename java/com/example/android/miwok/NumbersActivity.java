@@ -50,6 +50,11 @@ public class NumbersActivity extends AppCompatActivity {
         mMediaPlayer.setOnCompletionListener(mCompletionListener);
     }
     
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+    }
     private void releaseMediaPlayer() {
     if (mMediaPlayer != null) {
         mMediaPlayer.release();
